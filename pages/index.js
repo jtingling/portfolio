@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import IntroCard from '../components/IntroCard'
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { createApi } from 'unsplash-js';
-import { bgWrap, bgText } from '../styles/Home.module.css'
 export async function getStaticProps() {
   const unsplash = createApi({
     accessKey: process.env.UNSPLASH_ACCESS_KEY
@@ -15,7 +14,7 @@ export async function getStaticProps() {
   console.log(topics.response.results)
   */
   const res = await unsplash.photos.getRandom({ topics: '6sMVjTLSkeQ' })
-  const backgroundImage = res.response.urls.raw;
+  const backgroundImage = res.response.urls.regular;
   return {
     props: {
       backgroundImage
@@ -23,7 +22,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ backgroundImage, blurHash }) {
+export default function Home({ backgroundImage }) {
   const [height, setHeight] = useState(null)
   const [width, setWidth] = useState(null)
   if (process.browser) {
@@ -35,17 +34,20 @@ export default function Home({ backgroundImage, blurHash }) {
     }, [document.children[0].clientWidth])
   }
   return (
-    <div> 
+    <div className="overflow-hidden">
       <Head>
         <title>Portfolio Page</title>
         <meta name="my-portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div className={bgWrap}>
-        {width != null && <Image priority src={backgroundImage} width={width} height={height} layout='intrinsic' alt='nature image'/>}
+      <main >
+        <div className="fixed z-0">
+          {width != null && <Image priority src={backgroundImage} width={width} height={height} layout='fixed' alt='nature image' />}
         </div>
-        <IntroCard />
+        <div className="absolute">
+          <IntroCard imageWidth={width} />
+        </div>
+
       </main>
       <footer>
       </footer>
