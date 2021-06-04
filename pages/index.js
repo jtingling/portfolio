@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import IntroCard from '../components/IntroCard'
+import Card from '../components/Card'
 import { useState, useEffect } from 'react';
 import { createApi } from 'unsplash-js';
 export async function getStaticProps() {
@@ -34,23 +34,22 @@ export default function Home({ backgroundImage }) {
     }, [document.children[0].clientWidth])
   }
   return (
-    <div className="overflow-hidden">
+    <html>
       <Head>
         <title>Portfolio Page</title>
         <meta name="my-portfolio" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <div className="fixed z-0">
-          {width != null && <Image priority src={backgroundImage} width={width} height={height} layout='fixed' alt='nature image' />}
-        </div>
-        <div className="absolute">
-          <IntroCard imageWidth={width} />
+        <div className="relative z-0 inset-0 overflow-hidden">
+          {width != null && <Image src={backgroundImage} width={width} height={height} alt="nature" />}
+          <div className="absolute inset-0 z-1 ">
+            {width < 768 && <Card width={width} yPosition={"my-20"} view={"xs:max-w-sm"} gridFormat={"xs:grid-rows-2 xs:grid-cols-1 xs:grid-flow-col"}/>}
+            {width > 768 && <Card width={width} yPosition={"my-60"} view={"md:max-w-7xl"} gridFormat={"md:grid-cols-4 md:grid-rows-1"}/>}
+          </div>
         </div>
 
       </main>
-      <footer>
-      </footer>
-    </div>
+    </html>
   )
 }
