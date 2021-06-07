@@ -2,19 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Card from '../components/Card'
 import { useState, useEffect } from 'react';
-import { createApi } from 'unsplash-js';
+import getBackgrounds from '../lib/backgrounds';
+
 export async function getStaticProps() {
-  const unsplash = createApi({
-    accessKey: process.env.UNSPLASH_ACCESS_KEY
-  })
-  /*
-  const topics = await unsplash.topics.list({
-    topicIdsOrSlugs: ['nature'] // 'architecture', 'experimental', 'wallpapers'
-  })
-  console.log(topics.response.results)
-  */
-  const res = await unsplash.photos.getRandom({ topics: '6sMVjTLSkeQ' })
-  const backgroundImage = res.response.urls.regular;
+  const backgroundImage = await getBackgrounds();
   return {
     props: {
       backgroundImage
@@ -41,7 +32,7 @@ export default function Home({ backgroundImage }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main >
-        <div className="relative z-0 inset-0 overflow-hidden">
+        <div className={`relative z-0 inset-0 ${width > 768 && "overflow-hidden"}`}>
           {width != null && <Image src={backgroundImage} width={width} height={height} alt="nature" />}
           <div className="absolute inset-0 z-1 ">
             {width < 768 && <Card width={width} yPosition={"my-20"} view={"xs:max-w-sm"} gridFormat={"xs:grid-rows-2 xs:grid-cols-1 xs:grid-flow-col"}/>}

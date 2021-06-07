@@ -1,0 +1,16 @@
+{
+    "projects": [
+        {
+            "image": "/images/game-tracker.svg",
+            "name": "Game Tracker",
+            "type": "Full-Stack Web app",
+            "description": "Search, save, and get recommendations for your favourite video games. Developed with the MERN stack."
+        },
+        {
+            "image": "/images/store-template.svg",
+            "name": "Store Template",
+            "type": "Front-end E-Commerce storefront",
+            "description": "A custom storefront utilizing the shopify platform. Developed with React and graphQL."
+        }
+    ]
+}

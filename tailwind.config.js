@@ -7,7 +7,8 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       gray: colors.coolGray,
-      white: colors.white
+      white: colors.white,
+      blue: colors.blue
     },
     extend: {
       screens: {
