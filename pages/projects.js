@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import getBackgrounds from '../lib/backgrounds';
 import CardTemplate from '../components/CardContainer';
-
 export async function getStaticProps() {
   const backgroundImage = await getBackgrounds();
   return {
@@ -23,7 +22,7 @@ export default function Projects({ backgroundImage }) {
     }, [document.children[0].clientWidth])
   }
   return (
-    <div className={`relative z-0 inset-0 ${width > 768 && "overflow-hidden"}`}>
+    <div className={`relative z-0 inset-0 overflow-hidden`}>
       {width != null && <Image src={backgroundImage} width={width} height={height} alt="nature" />}
       <div className="absolute inset-0 z-1 ">
         <div>

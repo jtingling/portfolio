@@ -1,5 +1,8 @@
 import Link from 'next/link'
-
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faGithub, faLinkedin, faFacebook} from '@fortawesome/free-brands-svg-icons'
+import {faLink} from '@fortawesome/free-solid-svg-icons'
+import content from '../data/content.json'
 export default function Card({ view, yPosition, gridFormat, width }) {
 
     return (
@@ -8,13 +11,18 @@ export default function Card({ view, yPosition, gridFormat, width }) {
                 <img src="/images/profile.jpg" className="xs:rounded-t-lg sm:rounded-l-lg md:col-span-1" />
                 <div className="text-white  md:col-span-3 bg-gray-800 bg-opacity-70 sm:pl-2 sm:rounded-r-lg">
                     <h1 className="pt-3">Jacob Tingling</h1>
-                    <h3 className="pb-3">Web Developer</h3>
-                    <button className="pb-0">more links</button>
-                    <div className="grid md:grid-cols-1 md:grid-rows-2 pb-0">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <div className="self-end space-x-8 justify-self-center">
-                            <Link href="/projects">
-                                <a>Projects</a>
+                    <h3 className="pb-0">Web Developer</h3>
+                    <div className="flex justify-start w-full h-8 p-0">
+                        <a href="https://github.com/jtingling" target="_blank"><FontAwesomeIcon icon={faGithub} size="2x"/></a>
+                        <a href="https://www.linkedin.com/in/jtingling/" target="_blank" className="pl-2"><FontAwesomeIcon icon={faLinkedin} size="2x"/></a>
+                        <a href="https://www.facebook.com/jacob.t.58/" target="_blank" className="pl-2"><FontAwesomeIcon icon={faFacebook} size="2x"/></a>
+                    </div>
+                    <div className="grid md:grid-cols-1 md:grid-rows-2 pt-8">
+                        <p className="text-2xl">{content.intro}</p>
+                        <p className="text-xl pt-4">{content.contact}</p>
+                        <div className="self-end space-x-8 justify-self-start pt-5 ">
+                            <Link href="/projects" className="flex items-baseline">
+                                <a><p className="text-2xl"><FontAwesomeIcon icon={faLink} className="inline w-5 h-5 pr-1"/>Projects</p></a>
                             </Link>
                         </div>
                     </div>
