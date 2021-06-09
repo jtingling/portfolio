@@ -2,7 +2,7 @@ import Link from 'next/link'
 import ProjectCard from './ProjectCard'
 import data from '../data/projects.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLink } from '@fortawesome/free-solid-svg-icons'
+import { faLink, faBackward } from '@fortawesome/free-solid-svg-icons'
 
 export default function CardContainer({ width }) {
     return (
@@ -16,7 +16,7 @@ export default function CardContainer({ width }) {
                             })
                         }
                         <Link href="/">
-                            <a><p className="text-2xl"><FontAwesomeIcon icon={faLink} className="inline w-5 h-5 pr-1" />Home</p></a>
+                            <a><p className="text-2xl p-2"><FontAwesomeIcon icon={faBackward} className="inline w-5 h-5 pr-1" />Home</p></a>
                         </Link>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ export default function CardContainer({ width }) {
                         })
                     }
                     <Link href="/">
-                        <a><p className="text-2xl"><FontAwesomeIcon icon={faLink} className="inline w-5 h-5 pr-1" />Home</p></a>
+                        <a><p className="text-2xl"><FontAwesomeIcon icon={faBackward} className="inline w-5 h-5 pr-1" />Home</p></a>
                     </Link>
                     </div>
                 </div>

@@ -25,11 +25,8 @@ export default function Projects({ backgroundImage }) {
     <div className={`relative z-0 inset-0 overflow-hidden`}>
       {width != null && <Image src={backgroundImage} width={width} height={height} alt="nature" />}
       <div className="absolute inset-0 z-1 ">
-        <div>
-          <CardTemplate width={width} />
-        </div>
+        <CardTemplate width={width} />
       </div>
     </div>
-
   )
 }

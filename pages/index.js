@@ -35,7 +35,7 @@ export default function Home({ backgroundImage }) {
         <div className={`relative z-0 inset-0 ${width > 768 && "overflow-hidden"}`}>
           {width != null && <Image src={backgroundImage} width={width} height={height} alt="nature" />}
           <div className="absolute inset-0 z-1 ">
-            {width < 768 && <Card width={width} yPosition={"my-20"} view={"xs:max-w-sm"} gridFormat={"xs:grid-rows-2 xs:grid-cols-1 xs:grid-flow-col"}/>}
+            {width < 768 && <Card width={width} yPosition={"my-24"} view={"xs:max-w-sm"} gridFormat={"xs:grid-rows-2 xs:grid-cols-1 xs:grid-flow-col"}/>}
             {width > 768 && <Card width={width} yPosition={"my-60"} view={"md:max-w-7xl"} gridFormat={"md:grid-cols-4 md:grid-rows-1"}/>}
           </div>
         </div>
