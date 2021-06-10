@@ -8,29 +8,33 @@ export default function CardContainer({ width }) {
     return (
         <>
             {width > 768 ?
-                <div className={`flex justify-center max-w-2xl md:my-60 mx-auto`} >
-                    <div className="text-white bg-gray-800 bg-opacity-70 rounded-t-lg">
+                <div className={`max-w-2xl md:my-60 mx-auto`} >
+                    <div className="flex flex-col text-white bg-gray-800 bg-opacity-70 rounded-t-lg">
                         {
                             data.projects.map((project) => {
                                 return <><ProjectCard width={width} project={project} description={project.description} /><br /></>
                             })
                         }
-                        <Link href="/">
-                            <a><p className="text-2xl p-2"><FontAwesomeIcon icon={faBackward} className="inline w-5 h-5 pr-1" />Home</p></a>
-                        </Link>
+                        <button type="button" className="self-center rounded-full py-3 px-6 bg-gray-900 max-w-xs">
+                            <Link href="/">
+                                <a><p className="text-2xl -mt-2">Back</p></a>
+                            </Link>
+                        </button>
                     </div>
                 </div>
                 :
                 <div className={`flex justify-center flex-col my-20 mx-auto xs:rounded-lg`}>
-                    <div className="text-white bg-gray-800 bg-opacity-70 rounded-t-lg">
-                    {
-                        data.projects.map((project) => {
-                            return <ProjectCard key={project.id} width={width} project={project} className="p-1" />
-                        })
-                    }
-                    <Link href="/">
-                        <a><p className="text-2xl"><FontAwesomeIcon icon={faBackward} className="inline w-5 h-5 pr-1" />Home</p></a>
-                    </Link>
+                    <div className="flex flex-col text-white bg-gray-800 bg-opacity-70 rounded-t-lg">
+                        {
+                            data.projects.map((project) => {
+                                return <ProjectCard key={project.id} width={width} project={project} className="p-1" />
+                            })
+                        }
+                        <button type="button" className="self-center rounded-full py-3 px-6 bg-gray-900 max-w-xs">
+                            <Link href="/">
+                                <a><p className="text-2xl -mt-2">Back</p></a>
+                            </Link>
+                        </button>
                     </div>
                 </div>
             }
