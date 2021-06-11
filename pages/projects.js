@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import getBackgrounds from '../lib/backgrounds';
 import CardTemplate from '../components/CardContainer';
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const backgroundImage = await getBackgrounds();
   return {
     props: {

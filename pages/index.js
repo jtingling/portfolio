@@ -4,7 +4,7 @@ import Card from '../components/Card'
 import { useState, useEffect } from 'react';
 import getBackgrounds from '../lib/backgrounds';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const backgroundImage = await getBackgrounds();
   return {
     props: {
